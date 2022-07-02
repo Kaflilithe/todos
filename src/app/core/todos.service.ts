@@ -52,7 +52,7 @@ export class TodosService {
     return this.http.get<UserDto[]>(`${this.url}/users`);
   }
 
-  getTodos() {
-    return this.http.get<TodoDto[]>(`${this.url}/todos`);
+  getTodos(userId: number) {
+    return this.http.get<TodoDto[]>(`${this.url}/todos?userId=${userId}`);
   }
 }

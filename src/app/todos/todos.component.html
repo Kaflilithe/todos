@@ -1,9 +1,29 @@
 <div class="form-control">
   <div class="input-group">
-    <select class="select select-bordered">
+    <select
+      class="select select-bordered"
+      [formControl]="control"
+    >
       <option disabled selected>user</option>
-      <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+      <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
     </select>
     <button class="btn">Go</button>
+    <div class="overflow-x-auto" >
+      <table class="table w-full" *ngIf="todos">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1 -->
+          <tr *ngFor="let todo of todos">
+            <th>{{todo.title}}</th>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
