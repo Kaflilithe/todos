@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Config } from './config';
 
-export interface TodosDto {
+export interface TodoDto {
   'userId': number,
   'id': number,
   'title': string,
@@ -36,9 +37,13 @@ export interface UserDto {
   providedIn: 'root'
 })
 export class TodosService {
-  private url = 'https://jsonplaceholder.typicode.com';
+
+  get url() {
+    return this.config.host
+  }
 
   constructor(
+    private config: Config,
     private http: HttpClient
   ) {
   }
@@ -48,6 +53,6 @@ export class TodosService {
   }
 
   getTodos() {
-    return this.http.get<TodosDto>(`${this.url}/todos`);
+    return this.http.get<TodoDto[]>(`${this.url}/todos`);
   }
 }

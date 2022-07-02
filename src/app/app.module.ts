@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
+import { Config } from './core/config';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { TodosComponent } from './todos/todos.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    Config
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
