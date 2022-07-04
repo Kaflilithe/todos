@@ -1,0 +1,14 @@
+<div class="input-group">
+  <select
+    class="select select-bordered"
+    [formControl]="control"
+  >
+    <option disabled selected>user</option>
+    <option
+      *ngFor="let user of users"
+      [ngValue]="user.id"
+    >
+      {{user.name}}
+    </option>
+  </select>
+</div>

@@ -1,0 +1,16 @@
+<div class="form-control">
+  <app-user-select
+    [users]=users
+    (check)="updateUser($event)"
+  >
+  </app-user-select>
+  <app-todo-list>
+    <div class="flex flex-col">
+      <app-todo-item
+        *ngFor="let todo of todos"
+        [todo]=todo>
+      </app-todo-item>
+    </div>
+
+  </app-todo-list>
+</div>
