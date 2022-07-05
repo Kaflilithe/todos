@@ -11,6 +11,9 @@ import { UserSelectComponent } from './user-select/user-select.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { HeaderComponent } from './shared/components/core/header/header.component';
+import { FooterComponent } from './shared/components/core/footer/footer.component';
+import { PhotosComponent } from './photos/photos.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { HeaderComponent } from './shared/components/core/header/header.componen
     TodoListComponent,
     TodoItemComponent,
     HeaderComponent,
+    FooterComponent,
+    PhotosComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

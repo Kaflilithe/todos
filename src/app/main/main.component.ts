@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoDto, TodosService, UserDto } from '../core/todos.service';
+import { AlbumDto, PhotoDto, TodoDto, TodosService, UserDto } from '../core/todos.service';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +9,9 @@ import { TodoDto, TodosService, UserDto } from '../core/todos.service';
 export class MainComponent implements OnInit {
   users: UserDto[] = [];
   todos: TodoDto[] = [];
-
+  albums: AlbumDto[] = [];
+  photos: PhotoDto[] = [];
+  activeModal = true;
 
   constructor(
     public todoService: TodosService,
@@ -21,14 +23,29 @@ export class MainComponent implements OnInit {
       this.users = users;
     });
   }
+
   updateUser(id: number) {
-    this.getTodos(id)
+    this.getTodos(id);
+    this.getAlbums(id);
   }
+
   getTodos(userId: number) {
     this.todoService.getTodos(userId).subscribe(todos => {
       this.todos = todos;
     });
   }
 
+  getAlbums(userId: number) {
+    this.todoService.getAlbums(userId).subscribe(albums => {
+      this.albums = albums;
+    });
+  }
 
+  getPhotos(albumId: number) {
+    this.todoService.getPhotos(albumId).subscribe(photos => {
+        this.photos = photos;
+        this.activeModal = true;
+      }
+    );
+  }
 }

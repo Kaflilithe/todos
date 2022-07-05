@@ -8,7 +8,18 @@ export interface TodoDto {
   'title': string,
   'completed': boolean
 }
-
+export interface AlbumDto{
+  'userId': number,
+  'id': number,
+  'title': string
+}
+export interface PhotoDto{
+  "albumId": number,
+  "id": number,
+  "title": string,
+  "url": string,
+  "thumbnailUrl": string
+}
 export interface UserDto {
   'id': number,
   'name': string,
@@ -54,5 +65,11 @@ export class TodosService {
 
   getTodos(userId: number) {
     return this.http.get<TodoDto[]>(`${this.url}/todos?userId=${userId}`);
+  }
+  getAlbums(userId: number){
+    return this.http.get<AlbumDto[]>(`${this.url}/albums?userId=${userId}`)
+  }
+  getPhotos(albumId:number){
+    return this.http.get<PhotoDto[]>(`${this.url}/photos?albumId=${albumId}`)
   }
 }
