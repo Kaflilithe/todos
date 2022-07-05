@@ -1,25 +1,23 @@
-<div
-  class="modal"
-  [class.modal-open]="activeModal"
-  (click)="close()"
-  (keydown.escape)="close()"
->
-  <div class="modal-box relative flex flex-col" (click)="$event.stopPropagation()">
-    <header class="sticky top-0 z-10 bg-base-100">
-      <button
-        class="btn btn-sm btn-circle"
-        (click)="close()"
-      >
-        ✕
-      </button>
-    </header>
+<div class="modal-box relative flex flex-col">
+  <header class="sticky top-0 z-10 bg-base-100">
+    <button
+      class="btn btn-sm btn-circle"
+      (click)="close()"
+    >
+      ✕
+    </button>
+  </header>
 
-    <div class="overflow-hidden overflow-y-scroll flex-1 h-full">
-      <ng-content></ng-content>
+  <div class="overflow-hidden overflow-y-scroll flex-1 h-full">
+    <div class="flex flex-wrap justify-between items-center gap-1">
+      <app-photos
+        *ngFor="let photo of photos"
+        [photo]=photo>
+      </app-photos>
     </div>
+  </div>
 
-    <div class="modal-action">
-      <button #closeButton class="btn" (click)="close()">Close</button>
-    </div>
+  <div class="modal-action">
+    <button #closeButton class="btn" (click)="close()">Close</button>
   </div>
 </div>

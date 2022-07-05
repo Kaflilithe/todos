@@ -14,6 +14,7 @@ import { HeaderComponent } from './shared/components/core/header/header.componen
 import { FooterComponent } from './shared/components/core/footer/footer.component';
 import { PhotosComponent } from './photos/photos.component';
 import { ModalComponent } from './modal/modal.component';
+import { DialogModule } from '@angular/cdk/dialog';
 
 @NgModule({
   declarations: [
@@ -33,10 +34,11 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule
   ],
   providers: [
-    Config
+    Config,
   ],
   bootstrap: [AppComponent]
 })

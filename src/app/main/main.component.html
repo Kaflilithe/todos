@@ -18,16 +18,16 @@
     [album]=album
     (click)="getPhotos(album.id)">
   </app-albums>
-  <app-modal
-    [(activeModal)]="activeModal"
-  >
-    <div class="flex flex-wrap justify-between gap-1">
-      <app-photos
-        *ngFor="let photo of photos"
-        [photo]=photo>
-      </app-photos>
-    </div>
-  </app-modal>
+<!--  <app-modal-->
+<!--    [(activeModal)]="activeModal"-->
+<!--  >-->
+<!--    <div class="flex flex-wrap justify-between gap-1">-->
+<!--      <app-photos-->
+<!--        *ngFor="let photo of photos"-->
+<!--        [photo]=photo>-->
+<!--      </app-photos>-->
+<!--    </div>-->
+<!--  </app-modal>-->
 
 
 </div>

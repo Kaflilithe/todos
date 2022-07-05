@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumDto, PhotoDto, TodoDto, TodosService, UserDto } from '../core/todos.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-main',
@@ -15,6 +17,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     public todoService: TodosService,
+    public dialog: Dialog
   ) {
   }
 
@@ -44,8 +47,15 @@ export class MainComponent implements OnInit {
   getPhotos(albumId: number) {
     this.todoService.getPhotos(albumId).subscribe(photos => {
         this.photos = photos;
+        this.openDialog(photos);
         this.activeModal = true;
       }
     );
+  }
+
+  openDialog(photos: PhotoDto[]) {
+    this.dialog.open(ModalComponent, {
+      data: photos
+    });
   }
 }

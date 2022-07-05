@@ -1,45 +1,36 @@
 import {
+  AfterViewInit,
   Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
+  ElementRef, Inject,
   OnInit,
-  Output, SimpleChanges,
   ViewChild
 } from '@angular/core';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { PhotoDto } from '../core/todos.service';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit, OnChanges {
+export class ModalComponent implements OnInit, AfterViewInit {
   @ViewChild('closeButton')
   closeButton?: ElementRef<HTMLButtonElement>;
 
-  @Input()
-  activeModal?: boolean;
+  constructor(
+    public dialogRef: DialogRef<string>,
+    @Inject(DIALOG_DATA) public photos: PhotoDto[]
+  ) {
+  }
 
-  @Output()
-  activeModalChange = new EventEmitter<boolean>();
-
-  constructor() {
+  ngAfterViewInit(): void {
+    this.closeButton?.nativeElement.focus();
   }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['activeModal']?.currentValue) {
-      setTimeout(()=>{
-        this.closeButton?.nativeElement.focus()
-      })
-
-    }
-  }
-
   close() {
-    this.activeModalChange.emit(false);
+    this.dialogRef.close();
   }
 }
