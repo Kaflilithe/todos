@@ -4,30 +4,31 @@
     (check)="updateUser($event)"
   >
   </app-user-select>
-  <app-todo-list>
-    <div class="flex flex-col">
-      <app-todo-item
-        *ngFor="let todo of todos"
-        [todo]=todo>
-      </app-todo-item>
-    </div>
-
-  </app-todo-list>
-  <app-albums
-    *ngFor="let album of albums"
-    [album]=album
-    (click)="getPhotos(album.id)">
-  </app-albums>
-<!--  <app-modal-->
-<!--    [(activeModal)]="activeModal"-->
-<!--  >-->
-<!--    <div class="flex flex-wrap justify-between gap-1">-->
-<!--      <app-photos-->
-<!--        *ngFor="let photo of photos"-->
-<!--        [photo]=photo>-->
-<!--      </app-photos>-->
-<!--    </div>-->
-<!--  </app-modal>-->
+  <app-tabs>
+    <app-tab-item>
+      <app-tab-label>tab</app-tab-label>
+      <app-tab-body>
+        <app-todo-list>
+          <div class="flex flex-col">
+            <app-todo-item
+              *ngFor="let todo of todos"
+              [todo]=todo>
+            </app-todo-item>
+          </div>
+        </app-todo-list>
+      </app-tab-body>
+    </app-tab-item>
+    <app-tab-item >
+      <app-tab-label>albums</app-tab-label>
+      <app-tab-body>
+        <app-albums
+          *ngFor="let album of albums"
+          [album]=album
+          (click)="getPhotos(album.id)">
+        </app-albums>
+      </app-tab-body>
+    </app-tab-item>
+  </app-tabs>
 
 
 </div>

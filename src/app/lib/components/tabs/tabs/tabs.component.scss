@@ -1,0 +1,11 @@
+.tabs-header {
+  display: flex;
+}
+.active {
+  color: red;
+}
+.tab-label {
+  border: 1px dashed black;
+  padding: 25px;
+  margin: 0 10px;
+}

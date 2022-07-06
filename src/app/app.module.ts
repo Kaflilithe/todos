@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/components/core/footer/footer.componen
 import { PhotosComponent } from './photos/photos.component';
 import { ModalComponent } from './modal/modal.component';
 import { DialogModule } from '@angular/cdk/dialog';
+import { TabsModule } from './lib/components/tabs/tabs.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DialogModule } from '@angular/cdk/dialog';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DialogModule
+    DialogModule,
+    TabsModule
   ],
   providers: [
     Config,
