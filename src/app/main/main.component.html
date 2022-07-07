@@ -9,7 +9,7 @@
       <app-tab-label>tab</app-tab-label>
       <app-tab-body>
         <app-todo-list>
-          <div class="flex flex-col">
+          <div class="flex flex-col gap-4">
             <app-todo-item
               *ngFor="let todo of todos"
               [todo]=todo>
@@ -21,11 +21,14 @@
     <app-tab-item >
       <app-tab-label>albums</app-tab-label>
       <app-tab-body>
-        <app-albums
-          *ngFor="let album of albums"
-          [album]=album
-          (click)="getPhotos(album.id)">
-        </app-albums>
+        <div class="flex flex-col gap-4 justify-center">
+          <app-albums
+            *ngFor="let album of albums"
+            [album]=album
+            (click)="getPhotos(album.id)">
+          </app-albums>
+        </div>
+
       </app-tab-body>
     </app-tab-item>
   </app-tabs>
