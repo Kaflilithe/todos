@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodoDto } from '../core/todos.service';
+import { TodoDto } from '../../../../core/todos.service';
 
 @Component({
   selector: 'app-todo-item',
