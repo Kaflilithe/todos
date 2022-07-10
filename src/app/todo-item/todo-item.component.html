@@ -1,8 +1,7 @@
 <div class="card w-96 bg-base-100 shadow-xl">
   <div class="card-body">
     <div class="item flex gap-1 items-center">
-      <p [style.text-decoration-line]="todo.completed?'line-through':'none'">{{todo.title}}
-      </p>
+      <p [class.line-through]="todo.completed">{{todo.title}}</p>
       <input type="checkbox" [(ngModel)]="todo.completed" class="checkbox"/>
     </div>
   </div>
